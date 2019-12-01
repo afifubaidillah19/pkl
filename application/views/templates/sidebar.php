@@ -30,7 +30,10 @@
 
           <li>
           <a href="<?= base_url('mahasiswa'); ?>">
-            <i class="fa fa-dashboard"></i> <span>Mahasiswa</span>
+            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+          </a>
+          <a href="<?= base_url('data_berkas'); ?>">
+            <i class="fa fa-dashboard"></i> <span>Tugas Akhir</span>
           </a>
         </li>
 

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Nov 2019 pada 16.43
--- Versi server: 10.1.36-MariaDB
--- Versi PHP: 7.1.23
+-- Generation Time: Nov 30, 2019 at 08:43 AM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.1.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,35 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `dosen`
+-- Table structure for table `berkas`
+--
+
+CREATE TABLE `berkas` (
+  `id` int(200) NOT NULL,
+  `judul` varchar(2000) NOT NULL,
+  `deskripsi` mediumtext NOT NULL,
+  `pembimbing1` varchar(2000) NOT NULL,
+  `pembimbing2` varchar(2000) NOT NULL,
+  `kompetensi` varchar(2000) NOT NULL,
+  `file` mediumtext NOT NULL,
+  `email` text NOT NULL,
+  `nilai` int(100) NOT NULL,
+  `status` varchar(200) NOT NULL,
+  `tipe_file` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `berkas`
+--
+
+INSERT INTO `berkas` (`id`, `judul`, `deskripsi`, `pembimbing1`, `pembimbing2`, `kompetensi`, `file`, `email`, `nilai`, `status`, `tipe_file`) VALUES
+(8, '2222222222222222222222', 'asdasdasd                asdas', 'a', 'a', 'ab', '', 'ukirangamer@gmail.com', 0, '', 'Proposal'),
+(9, 'abbbbb', 'bbbb', 'bbbbasadcc', 'ascascsac', 'ascascsac', '', 'ukirangamer@gmail.com', 0, '', 'Skripsi');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dosen`
 --
 
 CREATE TABLE `dosen` (
@@ -40,7 +68,7 @@ CREATE TABLE `dosen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `dosen`
+-- Dumping data for table `dosen`
 --
 
 INSERT INTO `dosen` (`id_dosen`, `nama_dosen`, `nip`, `email`, `image`, `password`, `is_active`, `date_created`) VALUES
@@ -50,7 +78,7 @@ INSERT INTO `dosen` (`id_dosen`, `nama_dosen`, `nip`, `email`, `image`, `passwor
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `mahasiswa`
+-- Table structure for table `mahasiswa`
 --
 
 CREATE TABLE `mahasiswa` (
@@ -65,17 +93,18 @@ CREATE TABLE `mahasiswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `mahasiswa`
+-- Dumping data for table `mahasiswa`
 --
 
 INSERT INTO `mahasiswa` (`id_mahasiswa`, `nama_mahasiswa`, `nim`, `email`, `image`, `password`, `is_active`, `date_created`) VALUES
 (4, 'Mahasiswa', 1608561020, 'mahasiswa@gmail.com', 'user8-128x128.jpg', '$2y$10$fSw7BA7hDd8O3Fwmtr/zHeW2m6sGYIh5ssKco4jeMWibtrAfm1KJi', 1, 1572964788),
-(8, 'Afif Ubaidillah', 1608561010, 'afifubaidillah.unud1@gmail.com', 'default.jpg', '$2y$10$l5GmDH0jqd4M4/XZFyCoK.o6kMqp1LhK2Ma/sVuGtJCfuzpMdgEua', 1, 1573569601);
+(8, 'Afif Ubaidillah', 1608561010, 'afifubaidillah.unud1@gmail.com', 'default.jpg', '$2y$10$l5GmDH0jqd4M4/XZFyCoK.o6kMqp1LhK2Ma/sVuGtJCfuzpMdgEua', 1, 1573569601),
+(10, 'a', 1608561056, 'ukirangamer@gmail.com', 'default.jpg', '$2y$10$vVamXr2uhsF2v1Qsifw3h.oTLepp29bNdy5DtZiEIUghRRSM.t5HS', 1, 1573645614);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_token`
+-- Table structure for table `user_token`
 --
 
 CREATE TABLE `user_token` (
@@ -86,48 +115,68 @@ CREATE TABLE `user_token` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `user_token`
+--
+
+INSERT INTO `user_token` (`id`, `email`, `token`, `date_created`) VALUES
+(1, 'aaaa@gmail.com', 'T+kLDINso6S9acqCZGKbp/xuNYKa3ob0/nAvSYTycMI=', 1573645531);
+
+--
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `dosen`
+-- Indexes for table `berkas`
+--
+ALTER TABLE `berkas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `dosen`
 --
 ALTER TABLE `dosen`
   ADD PRIMARY KEY (`id_dosen`);
 
 --
--- Indeks untuk tabel `mahasiswa`
+-- Indexes for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  ADD PRIMARY KEY (`id_mahasiswa`);
+  ADD PRIMARY KEY (`id_mahasiswa`),
+  ADD KEY `email` (`email`);
 
 --
--- Indeks untuk tabel `user_token`
+-- Indexes for table `user_token`
 --
 ALTER TABLE `user_token`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `dosen`
+-- AUTO_INCREMENT for table `berkas`
+--
+ALTER TABLE `berkas`
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `dosen`
 --
 ALTER TABLE `dosen`
   MODIFY `id_dosen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT untuk tabel `mahasiswa`
+-- AUTO_INCREMENT for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  MODIFY `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT untuk tabel `user_token`
+-- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
