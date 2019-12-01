@@ -24,6 +24,13 @@
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         <?= form_error('email','<small class="text-danger">','</small>'); ?>
       </div>
+
+      <div class="form-group has-feedback">
+        <input type="number" class="form-control" placeholder="No.Telp" id="notelp" name="notelp" value="<?= set_value('notelp'); ?>">
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        <?= form_error('notelp','<small class="text-danger">','</small>'); ?>
+      </div>
+
       <div class="form-group has-feedback">
         <input type="password" class="form-control" placeholder="Password" id="password" name="password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
@@ -32,6 +39,12 @@
       <div class="form-group has-feedback">
         <input type="password" class="form-control" placeholder="Retype password" id="password2" name="password2">
         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+      </div>
+
+      <div class="form-group has-feedback">
+        <textarea type="alamat" class="form-control" placeholder="Alamat" id="alamat" name="alamat"><?= set_value('alamat'); ?></textarea>
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        <?= form_error('alamat','<small class="text-danger">','</small>'); ?>
       </div>
       <div class="row">
         <div class="col-xs-8">

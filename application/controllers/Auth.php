@@ -45,11 +45,19 @@ class Auth extends CI_Controller {
 		$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[mahasiswa.email]',[
 			'is_unique' => 'Email sudah terdaftar'
 		]);
+
+		// $this->form_validation->set_rules('datepicker', 'Tanggal', 'required|trim');
+		$this->form_validation->set_rules('notelp', 'No.Telpon', 'required|trim|min_length[10]|is_unique[mahasiswa.notelp]',[
+			'is_unique' => 'No.Telepon sudah terdaftar',
+			'min_length' => 'No.Telepon minimal 11 digit!'
+		]);
 		$this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[3]|matches[password2]',[
 			'matches' => 'Password Tidak Sama!',
 			'min_length' => 'Password Terlalu Pendek!'
 		]);
 		$this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password]');
+
+		$this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
 
 		if($this->form_validation->run() == false){
 			$data['title'] = 'Registrasi Mahasiswa';
@@ -59,12 +67,15 @@ class Auth extends CI_Controller {
 		}
 		else{
 			$email = $this->input->post('email',true);
+			// $datepicker = '%Y %m %d';
 			$data = [
 				'nama_mahasiswa' => htmlspecialchars($this->input->post('nama', true)),
 				'nim' => $this->input->post('nim'),
 				'email' => htmlspecialchars($email),
 				'image' => 'default.jpg',
+				'notelp' => $this->input->post('notelp'),
 				'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+				'alamat' => $this->input->post('alamat'),
 				'is_active' => 0,
 				'date_created' => time()
 			];
