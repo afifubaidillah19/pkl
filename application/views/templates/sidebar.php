@@ -32,7 +32,7 @@
           <a href="<?= base_url('mahasiswa'); ?>">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
-          <a href="<?= base_url('data_berkas'); ?>">
+          <a href="<?= base_url('upload/lihatdata'); ?>">
             <i class="fa fa-dashboard"></i> <span>Tugas Akhir</span>
           </a>
         </li>
