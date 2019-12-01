@@ -13,7 +13,7 @@
      
           <!-- FORM -->
           
-          <?= form_open_multipart('mahasiswa/edit_file') ?>
+          <?= form_open_multipart('mahasiswa/edit_berkas') ?>
           <input type="hidden" name="id" id="id" value="<?= $berkas['id'] ?>">
               <div class="form-group">
                 <label for="judul">Judul :</label> <?= form_error('judul','<small class="text-danger">','</small>'); ?>
@@ -71,7 +71,7 @@
               <div class="form-group">
                 <div class="col-sm-10" style="padding-top: 10px;">
                   <a href="<?= base_url('data_berkas'); ?>" class="btn btn-danger">Back</a>
-                  <button type="submit" class="btn btn-success">Edit</button>
+                  <button type="submit" name="edit" class="btn btn-success">Edit</button>
                 </div>
               </div>
 

@@ -15,7 +15,9 @@ class Edit_berkas extends CI_Controller
 	{
 	    $data['title'] = 'Dashboard Mahasiswa';
 		$data['mahasiswa'] = $this->db->get_where('mahasiswa', ['email' => $this->session->userdata('email')])->row_array();
+
 		$data['berkas'] = $this->db->get_where('berkas', ['email' => $this->session->userdata('email')])->row_array();
+		
 		// echo 'Selamat Datang Bro '.$data['user']['nama_user'];
 
 		$this->load->view('templates/header',$data);
