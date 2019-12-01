@@ -7,6 +7,8 @@ class Auth extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->library('form_validation');
+		$this->load->helper('date');
+		// changeDateFormat();
 	}
 
 	public function index()
@@ -46,7 +48,7 @@ class Auth extends CI_Controller {
 			'is_unique' => 'Email sudah terdaftar'
 		]);
 
-		// $this->form_validation->set_rules('datepicker', 'Tanggal', 'required|trim');
+		$this->form_validation->set_rules('datepicker', 'Tanggal', 'required|trim');
 		$this->form_validation->set_rules('notelp', 'No.Telpon', 'required|trim|min_length[10]|is_unique[mahasiswa.notelp]',[
 			'is_unique' => 'No.Telepon sudah terdaftar',
 			'min_length' => 'No.Telepon minimal 11 digit!'
@@ -67,7 +69,8 @@ class Auth extends CI_Controller {
 		}
 		else{
 			$email = $this->input->post('email',true);
-			// $datepicker = '%Y %m %d';
+			$datepicker = $this->input->post('datepicker');
+			$datestring = date('Y-m-d',strtotime($datepicker));
 			$data = [
 				'nama_mahasiswa' => htmlspecialchars($this->input->post('nama', true)),
 				'nim' => $this->input->post('nim'),
@@ -75,6 +78,7 @@ class Auth extends CI_Controller {
 				'image' => 'default.jpg',
 				'notelp' => $this->input->post('notelp'),
 				'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+				'date' => $datestring,
 				'alamat' => $this->input->post('alamat'),
 				'is_active' => 0,
 				'date_created' => time()
@@ -95,6 +99,7 @@ class Auth extends CI_Controller {
 			
 			$this->session->set_flashdata('message',' <div class="alert alert-success" role="alert"> Selamat, Anda Berhasil Membuat Akun! Silahkan Aktivasi Akun Anda!
 				</div>');
+			// var_dump($data);
 			redirect('auth');
 		}
 	}

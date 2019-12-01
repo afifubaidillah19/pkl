@@ -51,14 +51,14 @@
       </div>
 
       <!-- Date -->
-      <!-- <div class="form-group has-feedback">
+      <div class="form-group has-feedback">
         <div class="input-group date">
           <input type="text" class="form-control" id="datepicker" name="datepicker" autocomplete="off" placeholder="Date">
           <div class="input-group-addon">
             <i class="fa fa-calendar"></i>
           </div>
         </div>
-      </div> -->
+      </div>
 
       <div class="form-group has-feedback">
         <input type="number" class="form-control" placeholder="No.Telp" id="notelp" name="notelp" value="<?= set_value('notelp'); ?>">
