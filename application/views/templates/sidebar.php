@@ -33,7 +33,10 @@
           <a href="<?= base_url('mahasiswa'); ?>"1>
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
+
+          <a href="<?= base_url('upload/lihatdata'); ?>">
         </li>
+        
         <li <?= $this->uri->segment(1) == 'data_berkas' ? 'class = "active"' : ''
             ?>>
           <a href="<?= base_url('data_berkas'); ?>">
