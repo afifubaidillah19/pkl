@@ -12,10 +12,20 @@
     <section class="content">
      
           <!-- FORM -->
+<<<<<<< HEAD
               <section class="container-fluid">
               <div class="row">
                 <div class="form-input clearfix">
                   <div class="col-md-12">
+=======
+          
+          <?= form_open_multipart('mahasiswa/edit_berkas') ?>
+          <input type="hidden" name="id" id="id" value="<?= $berkas['id'] ?>">
+              <div class="form-group">
+                <label for="judul">Judul :</label> <?= form_error('judul','<small class="text-danger">','</small>'); ?>
+                <input type="text" class="form-control" id="judul" name="judul" value="<?= $berkas['judul']?>">
+              </div>
+>>>>>>> dae5171381ec9bff7c1313fb1bba63678b8adc36
 
                     <div class="panel panel-primary">
                       <div class="panel-heading">Edit Data Berkas</div>
@@ -101,7 +111,17 @@
                   </div>
                 </div>
               </div>
+<<<<<<< HEAD
             </section>
+=======
+
+              <div class="form-group">
+                <div class="col-sm-10" style="padding-top: 10px;">
+                  <a href="<?= base_url('data_berkas'); ?>" class="btn btn-danger">Back</a>
+                  <button type="submit" name="edit" class="btn btn-success">Edit</button>
+                </div>
+              </div>
+>>>>>>> dae5171381ec9bff7c1313fb1bba63678b8adc36
 
           </form>
 <!-- FORM -->

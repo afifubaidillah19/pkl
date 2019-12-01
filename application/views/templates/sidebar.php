@@ -28,11 +28,19 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
 
-          <li>
-          <a href="<?= base_url('mahasiswa'); ?>">
+          <li <?= $this->uri->segment(1) == 'mahasiswa' || $this->uri->segment(1) == '' ? 'class = "active"' : ''
+            ?>>
+          <a href="<?= base_url('mahasiswa'); ?>"1>
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
+<<<<<<< HEAD
           <a href="<?= base_url('upload/lihatdata'); ?>">
+=======
+        </li>
+        <li <?= $this->uri->segment(1) == 'data_berkas' ? 'class = "active"' : ''
+            ?>>
+          <a href="<?= base_url('data_berkas'); ?>">
+>>>>>>> dae5171381ec9bff7c1313fb1bba63678b8adc36
             <i class="fa fa-dashboard"></i> <span>Tugas Akhir</span>
           </a>
         </li>
