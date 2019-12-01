@@ -41,6 +41,25 @@
           </a>
         </li>
 
+        <li <?= $this->uri->segment(1) == 'PengajuanTugasAkhir' ? 'class = "active"' : ''
+            ?>>
+          <a href="<?= site_url('PengajuanTugasAkhir/index')?>">
+            <i class="fa fa-book"></i> <span>Pengajuan Tugas Akhir</span>
+          </a>
+        </li>
+
+        <li <?= $this->uri->segment(1) == 'TugasAkhir' ? 'class = "active"' : ''
+            ?>>
+          <a href="<?= site_url('TugasAkhir/index')?>"><i class="fa fa-book"></i> <span>List Tugas Akhir</span>
+          </a>
+        </li>
+
+        <li <?= $this->uri->segment(1) == 'JadwalUjian' ? 'class = "active"' : ''
+            ?>>
+          <a href="<?= site_url('JadwalUjian/index')?>"><i class="fa fa-book"></i> <span>Jadwal Ujian</span>
+          </a>
+        </li>
+
 
       </ul>
     </section>

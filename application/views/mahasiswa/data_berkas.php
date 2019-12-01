@@ -39,10 +39,10 @@
 		  </tr>
 		</thead>
 		<tbody>
-    <?php  $no = 1;foreach ($berkas as $b): ?>
+    <?php  $no = 1; foreach ($berkas as $b): ?>
 		  <tr>
-      <td><?php echo $no; ?></td>
-      <td><?= $b['id'];?></td>
+      <td><?= $no; ?></td>
+      <td><?= $b['id'];?></td> 
 			<td><?= $b['judul'];?></td>
 			<td><?= $b['file'];?></td>
       <td><?= $b['tipe_file']?></td>
